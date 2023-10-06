@@ -6,10 +6,15 @@ function generatePassword() {
     alert("Dummy 8-128 characters, Duh")
     return "Please try again."
   }
-  var lowercase = confirm (" Would you like lowercase letters in your password?")
-  var uppercase = confirm ("Would you like a uppercase letters in your password?")
-  var special = confirm ("Would you like a special character in your password?")
-  var number = confirm ("Would you like a number in your password?")
+  var lowercase = confirm(" Would you like lowercase letters in your password?")
+  var uppercase = confirm("Would you like a uppercase letters in your password?")
+  var special = confirm("Would you like a special character in your password?")
+  var number = confirm("Would you like a number in your password?")
+  if (!lowercase && !uppercase && !special && !number) {
+    alert("Dummy, you need at least one character to make a passowrd, Duh.")
+    return "Please try again."
+  }
+  
 }
 // Write password to the #password input
 function writePassword() {
