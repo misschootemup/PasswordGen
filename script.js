@@ -10,7 +10,7 @@ function generatePassword() {
   var pslength = prompt("Password must be between 8-128 characters. How many characters would you prefer? ")
   if (pslength < 8 || pslength > 128 || isNaN(pslength)) {
     alert("Dummy 8-128 characters, Duh")
-    return "Please try again."
+    generatePassword()
   }
   var lowercase = confirm(" Would you like lowercase letters in your password?")
   console.log(lowercase)
@@ -19,33 +19,30 @@ function generatePassword() {
   var number = confirm("Would you like a number in your password?")
   if (!lowercase && !uppercase && !special && !number) {
     alert("Dummy, you need at least one character to make a passowrd, Duh.")
-    return "Please try again."
+    generatePassword()
   }
   if (lowercase) {
-    for (var i = 0; i <  lowerCase.length; i++){
-      characters.push(lowerCase[i]);  
-      console.log(characters);
-      // i = 0, this is less than 26, 
-      // lowerCase it would be the entire aarray and the brackets,  
-      // lowerCase[0] ; [a,,b,c] a, a get pushed into  characters, ['a'] 
-      // []      [[]]
-    }
-    console.log(characters)
+ characters=characters.concat(lowercase)
   }
 
   if (uppercase) {
-    characters.push(upperCase)
-    console.log(characters)
-  }
+ characters=characters.concat(uppercase)
+   }
 
   if (special) {
-    characters.push(Special)
-    console.log(characters)
-  }
+    characters=characters.concat(Special)
+
+      }
   if (number) {
-    characters.push(numbers)
-    console.log(characters)
+    characters=characters.concat(number)
   }
+var password=""
+for (i=0; i<pslength; i++){
+  var randomletter=characters[Math.floor(Math.random()*characters.length)]
+  password=password.concat(randomletter)
+}
+console.log(password)
+return password
 }
 // Write password to the #password input
 function writePassword() {
